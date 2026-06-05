@@ -1,0 +1,21 @@
+- hosts: uk
+  become: yes
+  tasks:
+    - name: 1st task
+      debug:
+        msg: Running 1st task
+      tags: green
+    - name: 2nd task
+      debug:
+        msg: Running 2nd task
+      tags: black
+    - name: 3rd task
+      debug:
+        msg: Running 3rd task
+      tags:
+        - black
+        - green
+    - name: Notification task
+      debug:
+        msg: send notification
+      tags: notify
