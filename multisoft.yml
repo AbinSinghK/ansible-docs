@@ -1,0 +1,12 @@
+- hosts: india
+  become: yes
+  tasks:
+    - name: Install Multiple Softwares
+      yum:
+        name: "{{ item }}" #Jinja2 templating
+        state: present
+      loop:
+        - mysql
+        - php
+        - unzip
+        - httpz
